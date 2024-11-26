@@ -1,7 +1,14 @@
 {
   "expo": {
     "name": "MenuRestaurante",
-    "slug": "MenuRestaurante",
-    "version": "1.0.0"
+    "slug": "restaurante",
+    "version": "1.0.0",
+    "newArchEnabled": true,
+    "extra": {
+      "eas": {
+        "projectId": "3c9cfa27-2ffd-4314-bd9c-595adc91759d"
+      }
+    },
+    "owner": "azazo48"
   }
 }

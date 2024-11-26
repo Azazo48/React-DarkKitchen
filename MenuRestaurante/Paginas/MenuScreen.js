@@ -61,7 +61,7 @@ export default function MenuScreen() {
     }
 
     //fetch mamalon para crear una nueva orden con los productos y el total
-    const response = await fetch('http://localhost:3000/nuevaorden', {
+    const response = await fetch('https://restaurantedarlkserver.onrender.com/nuevaorden', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export default function MenuScreen() {
     } else {
       //se limpia la seleccion de comida y se manda una alerta con cuantas comidas se enviaron
       setSeleccionadas([]);
-      Alert.alert(`Enviando ${seleccionadas.length} comidas a cocina.`);
+      Alert.alert(`Enviando comidas a cocina.`);
     }
   };
 

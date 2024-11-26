@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View, Text, TouchableOpacity, StyleSheet, Picker, Alert } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+
 
 const Pago = () => {
     const [ordenes, setOrdenes] = useState([]);
@@ -8,7 +10,7 @@ const Pago = () => {
     useEffect(() => {
         //fetch mamalon a la api para ver las ordenes
         const fetchOrdenes = async () => {
-            const response = await fetch('http://localhost:3000/ordenespago');
+            const response = await fetch('https://restaurantedarlkserver.onrender.com/ordenespago');
             const data = await response.json();
             setOrdenes(data[0]);
         };
@@ -34,7 +36,7 @@ const Pago = () => {
         setOrdenes((prevOrdenes) => prevOrdenes.filter((orden) => orden.orden_id !== orden_id));
 
         //eliminacion de la orden pero ahora en la base de datos
-        await fetch(`http://localhost:3000/ordenes/pagar/${orden_id}`, {
+        await fetch(`https://restaurantedarlkserver.onrender.com/ordenes/pagar/${orden_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

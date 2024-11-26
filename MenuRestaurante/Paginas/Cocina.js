@@ -7,7 +7,7 @@ const Cocina = () => {
     useEffect(() => {
         //fetch mamalon a la api para ver las ordenes
         const fetchOrdenes = async () => {
-            const response = await fetch('http://localhost:3000/ordenes');
+            const response = await fetch('https://restaurantedarlkserver.onrender.com/ordenes');
             const data = await response.json();
             setOrdenes(data[0]);
         };
@@ -22,7 +22,7 @@ const Cocina = () => {
 
     //fetch mamalon para aceptar las ordenes con su id
     const botonAceptar = async (orden_id) => {
-        await fetch(`http://localhost:3000/ordenes/aceptar/${orden_id}`, {
+        await fetch(`https://restaurantedarlkserver.onrender.com/ordenes/aceptar/${orden_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const Cocina = () => {
         setOrdenes((ordenesPrevias) => ordenesPrevias.filter((orden) => orden.orden_id !== orden_id));
         
         //eliminacion de la orden en la base de datos
-        await fetch(`http://localhost:3000/ordenes/rechazar/${orden_id}`, {
+        await fetch(`https://restaurantedarlkserver.onrender.com/ordenes/rechazar/${orden_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const Cocina = () => {
         setOrdenes((ordenesPrevias) => ordenesPrevias.filter((orden) => orden.orden_id !== orden_id));
         
         //eliminacion de la orden en la base de datos
-        await fetch(`http://localhost:3000/ordenes/cumpletar/${orden_id}`, {
+        await fetch(`https://restaurantedarlkserver.onrender.com/ordenes/cumpletar/${orden_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

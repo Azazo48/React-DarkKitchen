@@ -22,13 +22,18 @@ app.get("/ordenes", async (req, res) => {
     res.status(200).send(ordenesToCocina);
 });
 
+app.get("/", async (req, res) => {
+  console.log("Apoco si")
+  const ordenesToCocina = await ordenesCocina();
+  res.status(200).send(ordenesToCocina);
+});
+
 
 //funcion para obtener las ordenes que se mostraran en pago
-app.get("/ordenespago", async (req, res) => {
+app.get('/ordenespago', async (req, res) => {
   const ordenesToPago = await ordenesPago();
   res.status(200).send(ordenesToPago);
 });
-
 
 //funcion para aceptarOrden ordenes y cambiar su estatus en la base de datos CAMPO: "verificado"(creo)
 app.patch("/ordenes/aceptar/:id", async (req, res) => {
@@ -67,6 +72,6 @@ app.post("/nuevaorden", async (req, res) => {
 
 
 //api en el puerto 3000 :P
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+app.listen(3000, '0.0.0.0', () => {
+  console.log("Server running on port 3000");
 });
